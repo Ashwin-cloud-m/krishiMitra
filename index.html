@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <meta name="theme-color" content="#1b4332" />
+  <meta name="description" content="KrishiMitra AI – Smart Farming, Shared Knowledge. Decentralized AI farm advisory platform for rural agricultural communities in India." />
+  
+  <title>KrishiMitra AI – Smart Farming, Shared Knowledge</title>
+
+  <!-- PWA Manifest & Favicon -->
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <!-- Fonts: Inter & Noto Sans Devanagari for Marathi/Hindi -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              900: '#143326',
+              800: '#1b4332',
+              700: '#24523e',
+              600: '#2d6a4f'
+            },
+            leaf: {
+              500: '#40916c',
+              400: '#52b788',
+              300: '#74c69d',
+              200: '#95d5b2'
+            },
+            cream: {
+              DEFAULT: '#fdfbf7',
+              warm: '#f7f4ea'
+            },
+            earth: {
+              DEFAULT: '#8c5e34',
+              dark: '#582f0e',
+              light: '#d4a373'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans Devanagari', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-forest: #1b4332;
+      --color-cream: #fdfbf7;
+    }
+    body {
+      background-color: var(--color-cream);
+      font-family: 'Inter', 'Noto Sans Devanagari', system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    html.font-size-large {
+      font-size: 115%;
+    }
+    html.font-size-xlarge {
+      font-size: 130%;
+    }
+    html.high-contrast-mode {
+      filter: contrast(135%);
+    }
+    html.high-contrast-mode body {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+    }
+    .safe-area-pb {
+      padding-bottom: env(safe-area-inset-bottom, 12px);
+    }
+  </style>
+
+  <!-- React 18 and ReactDOM 18 UMD -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+</head>
+<body class="bg-[#fdfbf7] text-stone-900 selection:bg-emerald-200">
+  <div id="root">
+    <!-- Initial lightweight loading splash while bundle mounts -->
+    <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #1b4332; color: white;">
+      <div style="font-size: 48px; margin-bottom: 12px; animation: bounce 1.2s infinite;">🌱</div>
+      <h1 style="font-size: 22px; font-weight: 800; letter-spacing: -0.5px; margin: 0;">KrishiMitra AI</h1>
+      <p style="font-size: 12px; color: #a7f3d0; margin-top: 4px;">Smart Farming, Shared Knowledge</p>
+      <div style="margin-top: 24px; width: 140px; height: 3px; background: #2d6a4f; border-radius: 9999px; overflow: hidden;">
+        <div style="width: 50%; height: 100%; background: #52b788; border-radius: 9999px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Application Bundle -->
+  <script src="/app.js"></script>
+
+  <!-- Register Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch((err) => {
+          console.log('PWA Service Worker note:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
